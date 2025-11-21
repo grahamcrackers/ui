@@ -1,0 +1,14 @@
+{
+    "extends": "@grahamcrackers/typescript-config/react-library.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["src"],
+    "exclude": ["dist", "build", "node_modules"]
+}

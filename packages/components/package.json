@@ -1,0 +1,57 @@
+{
+    "name": "@grahamcrackers/components",
+    "version": "0.0.0",
+    "type": "module",
+    "sideEffects": [
+        "**/*.css"
+    ],
+    "files": [
+        "dist"
+    ],
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        },
+        "./*": {
+            "import": "./dist/components/*/index.js",
+            "require": "./dist/components/*/index.cjs"
+        }
+    },
+    "license": "MIT",
+    "scripts": {
+        "dev": "tsup --watch",
+        "build": "tsup",
+        "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
+        "build:components": "tsc",
+        "check-types": "tsc --noEmit",
+        "dev:styles": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+        "dev:components": "tsc --watch",
+        "lint": "eslint src --max-warnings 0"
+    },
+    "peerDependencies": {
+        "react": "^18.0.0 || ^19.0.0",
+        "react-dom": "^18.0.0 || ^19.0.0"
+    },
+    "dependencies": {
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "react-aria-components": "^1.12.1",
+        "tailwind-merge": "^3.3.1",
+        "tw-animate-css": "^1.3.7"
+    },
+    "devDependencies": {
+        "@grahamcrackers/eslint-config": "workspace:*",
+        "@grahamcrackers/tailwind-config": "workspace:*",
+        "@grahamcrackers/typescript-config": "workspace:*",
+        "@tailwindcss/cli": "^4.1.5",
+        "@types/node": "^22.19.1",
+        "@types/react": "18.3.12",
+        "eslint": "^9.33.0",
+        "tailwindcss": "^4.1.5",
+        "tiny-glob": "^0.2.9",
+        "tsup": "^8.5.0",
+        "typescript": "5.9.2"
+    }
+}
