@@ -1,0 +1,32 @@
+{
+    "name": "grahamcrackers-ui",
+    "private": true,
+    "engines": {
+        "node": ">=18"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/grahamcrackers/ui.git"
+    },
+    "scripts": {
+        "build": "turbo run build",
+        "dev": "turbo run dev --filter=@grahamcrackers/vite...",
+        "lint": "turbo run lint",
+        "check-types": "turbo run check-types",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "changeset": "changeset",
+        "version-packages": "changeset version",
+        "release": "turbo run build --filter=docs^... && changeset publish",
+        "preview-storybook": "turbo run preview-storybook",
+        "pkg:check": "manypkg check"
+    },
+    "devDependencies": {
+        "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
+        "@manypkg/cli": "^0.25.1",
+        "@react-spectrum/s2": "^0.12.0",
+        "prettier": "^3.6.0",
+        "prettier-plugin-tailwindcss": "^0.6.14",
+        "turbo": "^2.5.6"
+    },
+    "packageManager": "pnpm@10.18.0"
+}
