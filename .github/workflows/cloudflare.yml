@@ -16,17 +16,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.18.0
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20" # Adjust to your Node version
-          cache: "npm" # Change to 'pnpm' or 'yarn' if you use those
+          node-version: 22
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: npm install # or 'pnpm install' or 'yarn install'
+        run: pnpm install
 
       - name: Build docs
-        run: npm run build --filter=docs # Adjust based on your setup
+        run: pnpm build --filter=docs # Adjust based on your setup
         # Other options:
         # npm run build --workspace=apps/docs
         # turbo run build --filter=docs
