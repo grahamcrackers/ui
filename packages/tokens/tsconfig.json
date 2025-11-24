@@ -1,11 +1,8 @@
 {
     "extends": "@grahamcrackers/typescript-config/base.json",
     "compilerOptions": {
-        "outDir": "./dist",
-        "rootDir": "./src"
+        "resolveJsonModule": true
     },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules", "dist"]
+    "include": ["tokens.ts"],
+    "exclude": ["dist", "build", "node_modules"]
 }
-
-

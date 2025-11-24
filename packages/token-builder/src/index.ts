@@ -7,13 +7,13 @@
  * @import "@grahamcrackers/ui-tokens/theme.css";
  */
 
-export { pxToRem } from "./utils.js";
+export { pxToRem } from "./utils";
 export type { 
     SpectrumToken, 
     SpectrumTokenWithSets, 
     SpectrumTokenValue,
     SpectrumTokens,
     TailwindTheme 
-} from "./token-types.js";
+} from "./token-types";
 
 

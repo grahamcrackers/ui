@@ -3,35 +3,18 @@
     "version": "0.0.0",
     "type": "module",
     "private": true,
-    "description": "Adobe Spectrum Design Tokens for Tailwind CSS v4",
-    "keywords": [
-        "design-tokens",
-        "tailwind",
-        "tailwindcss",
-        "spectrum",
-        "adobe",
-        "css",
-        "design-system"
-    ],
-    "scripts": {
-        "build": "tsx src/generate-theme.ts",
-        "clean": "rm -rf dist"
-    },
     "exports": {
-        ".": {
-            "types": "./src/index.ts",
-            "default": "./src/index.ts"
-        },
-        "./theme.css": "./dist/spectrum-theme.css"
+        ".": "./index.css",
+        "./colors": "./colors.css",
+        "./color-aliases": "./color-aliases.css",
+        "./semantic-colors": "./semantic-colors.css",
+        "./icons": "./icons.css",
+        "./layout": "./layout.css",
+        "./typography": "./typography.css",
+        "./shadows": "./shadows.css"
     },
-    "files": [
-        "dist",
-        "src",
-        "README.md",
-        "USAGE.md"
-    ],
     "devDependencies": {
-        "@adobe/spectrum-tokens": "^14.0.0",
+        "@adobe/spectrum-tokens": "^13.16.0",
         "@grahamcrackers/typescript-config": "workspace:*",
         "@types/node": "^22.18.8",
         "tsx": "^4.20.6"

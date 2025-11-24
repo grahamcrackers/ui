@@ -1,0 +1,17 @@
+{
+    "name": "@grahamcrackers/theme",
+    "version": "0.0.0",
+    "type": "module",
+    "private": true,
+    "exports": {
+        ".": "./s2-theme.css",
+        "./postcss": "./postcss.config.js"
+    },
+    "dependencies": {
+        "tw-animate-css": "^1.3.7"
+    },
+    "devDependencies": {
+        "postcss": "^8.5.3",
+        "tailwindcss": "^4.1.5"
+    }
+}

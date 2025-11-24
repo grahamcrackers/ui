@@ -10,6 +10,7 @@
     ],
     "types": "./dist/index.d.ts",
     "exports": {
+        "./styles.css": "./src/styles.css",
         ".": {
             "import": "./dist/index.js",
             "require": "./dist/index.cjs"
@@ -39,7 +40,8 @@
         "clsx": "^2.1.1",
         "react-aria-components": "^1.12.1",
         "tailwind-merge": "^3.3.1",
-        "tw-animate-css": "^1.3.7"
+        "tw-animate-css": "^1.3.7",
+        "usehooks-ts": "^3.1.1"
     },
     "devDependencies": {
         "@grahamcrackers/eslint-config": "workspace:*",

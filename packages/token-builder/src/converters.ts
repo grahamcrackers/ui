@@ -1,5 +1,5 @@
-import type { SpectrumTokenValue, SpectrumTokenWithSets } from "./token-types.js";
-import { pxToRem } from "./utils.js";
+import type { SpectrumTokenValue, SpectrumTokenWithSets } from "./token-types";
+import { pxToRem } from "./utils";
 
 export function hasTokenSets(token: SpectrumTokenValue): token is SpectrumTokenWithSets {
     return "sets" in token && typeof token.sets === "object";
@@ -19,8 +19,8 @@ export function resolveTokenReference(value: string, allTokens: Map<string, stri
     const resolvedValue = allTokens.get(referencedToken);
 
     if (!resolvedValue) {
-        console.warn(`Token reference not found: ${referencedToken}`);
-        return value;
+        // Convert unresolved token reference to CSS variable syntax
+        return `var(--${referencedToken})`;
     }
 
     return resolveTokenReference(resolvedValue, allTokens);
@@ -43,16 +43,13 @@ export function convertDimensionValue(value: string | number, convertToRem = tru
 }
 
 export function convertColorValue(value: string): string {
-    const rgbMatch = value.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    if (rgbMatch) {
-        return `rgb(${rgbMatch[1]} ${rgbMatch[2]} ${rgbMatch[3]})`;
-    }
-
+    // Convert rgba to rgb with alpha syntax
     const rgbaMatch = value.match(/^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/);
     if (rgbaMatch) {
-        return `rgb(${rgbaMatch[1]} ${rgbaMatch[2]} ${rgbaMatch[3]} / ${rgbaMatch[4]})`;
+        return `rgb(${rgbaMatch[1]}, ${rgbaMatch[2]}, ${rgbaMatch[3]}, ${rgbaMatch[4]})`;
     }
 
+    // Keep rgb as-is with commas
     return value;
 }
 

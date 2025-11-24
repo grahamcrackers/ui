@@ -18,7 +18,16 @@ export interface SpectrumTokenWithSets {
     };
 }
 
-export type SpectrumTokenValue = SpectrumToken | SpectrumTokenWithSets;
+export interface SpectrumTokenWithScaleSets {
+    $schema: string;
+    uuid: string;
+    sets: {
+        desktop?: SpectrumToken;
+        mobile?: SpectrumToken;
+    };
+}
+
+export type SpectrumTokenValue = SpectrumToken | SpectrumTokenWithSets | SpectrumTokenWithScaleSets;
 
 export interface SpectrumTokens {
     [key: string]: SpectrumTokenValue;

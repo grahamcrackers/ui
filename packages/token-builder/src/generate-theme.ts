@@ -8,8 +8,8 @@ import {
     getFontWeightValue,
     hasTokenSets,
     resolveTokenReference,
-} from "./converters.js";
-import type { SpectrumTokens, SpectrumTokenValue } from "./token-types.js";
+} from "./converters";
+import type { SpectrumTokens, SpectrumTokenValue } from "./token-types";
 
 const SPECTRUM_TOKENS_PATH = join(process.cwd(), "node_modules", "@adobe", "spectrum-tokens", "src");
 
@@ -59,7 +59,12 @@ function extractTokenValue(token: SpectrumTokenValue, colorScheme: "light" | "da
         return token.sets.light?.value != null ? String(token.sets.light.value) : null;
     }
 
-    return String(token.value);
+    // Token has no sets, must be a regular token
+    if (!("sets" in token)) {
+        return String(token.value);
+    }
+
+    return null;
 }
 
 function processTokens(): {
@@ -113,6 +118,11 @@ function processTokens(): {
                 if (token.sets.dark) {
                     colorSchemeTokens.dark.set(name, String(token.sets.dark.value));
                 }
+                continue;
+            }
+
+            // Skip tokens with sets that aren't color sets (like scale-sets)
+            if ("sets" in token) {
                 continue;
             }
 

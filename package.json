@@ -10,7 +10,8 @@
     },
     "scripts": {
         "build": "turbo run build",
-        "dev": "turbo run dev --filter=@grahamcrackers/vite...",
+        "dev": "turbo run dev",
+        "dev:storybook": "turbo run dev --filter=storybook...",
         "lint": "turbo run lint",
         "check-types": "turbo run check-types",
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
